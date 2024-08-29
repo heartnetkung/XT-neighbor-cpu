@@ -21,7 +21,7 @@ result = nearest_neighbor(seqs, distance_threshold)
 
 ## Documentation
 ```python
-"""
+    """
     List all neighboring sequences efficiently within the given distance using SymDel algorithm.
     That is, given a list of AIRR sequences and edit distance threshold, find all pairs of sequences that have their edit distance smaller or equal to the threshold.
 
@@ -42,8 +42,6 @@ result = nearest_neighbor(seqs, distance_threshold)
         custom distance function to use, must statisfy 4 properties of distance (https://en.wikipedia.org/wiki/Distance#Mathematical_formalization)
     max_custom_distance : float
         maximum distance to include in the result, ignored if custom distance is not supplied
-    output_type: string
-        format of returns, can be "triplets", "coo_matrix", "ndarray"
     seq2 : iterable of strings or None
         another list of CDR3B sequences to compare against
     progress : bool
@@ -51,10 +49,7 @@ result = nearest_neighbor(seqs, distance_threshold)
 
     Returns
     -------
-    neighbors : array of 3D-tuples, sparse matrix, or dense matrix
-        neigbors along with their edit distances according to the given output_type
-        if "triplets" returns are [(x_index, y_index, edit_distance)]
-        if "coo_matrix" returns are scipy's sparse matrix where C[i,j] = distance(X_i, X_j) or 0 if not neighbor
-        if "ndarray" returns numpy's 2d array representing dense matrix
+    neighbors : array of 3D-tuples
+        neigbors along with their edit distances in format [(x_index, y_index, edit_distance)]
     """
 ```

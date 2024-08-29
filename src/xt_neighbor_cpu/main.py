@@ -40,5 +40,6 @@ def nearest_neighbor(seqs, max_edits=1, max_returns=None,
         if "coo_matrix" returns are scipy's sparse matrix where C[i,j] = distance(X_i, X_j) or 0 if not neighbor
         if "ndarray" returns numpy's 2d array representing dense matrix
     """
-	return symdel(seqs, max_edits, max_returns, custom_distance, max_custom_distance,
-             output_type, seqs2, progress)
+	return symdel(seqs, max_edits=max_edits, max_returns=max_returns,
+		custom_distance=custom_distance, max_custom_distance=max_custom_distance,
+             output_type=output_type, seqs2=seqs2, progress=progress)

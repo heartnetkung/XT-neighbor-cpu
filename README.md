@@ -15,7 +15,8 @@ from xt_neighbor_cpu import nearest_neighbor
 seqs = ['CAA', 'CAD', 'CDA', 'CKK']
 distance_threshold = 1
 result = nearest_neighbor(seqs, distance_threshold)
-# return [ (0,1,1), (0,2,1) ] where each triplet (i,j,d) represents the sequence index i,j and their edit distance d.
+# return [ (0,1,1), (0,2,1) ]
+# where each triplet (i,j,d) represents the sequence index i,j and their edit distance d.
 ```
 
 ## Documentation

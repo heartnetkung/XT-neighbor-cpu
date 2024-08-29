@@ -1,26 +1,10 @@
-# XT-neighbor-cpu
+from pyrepseq import symdel
 
-## Description
-This is a wrapper Python package for calling SymDel algorithm which is used in finding nearest neighbors of AIRR sequence used in immunological applications. It is mentioned in [XTNeighbor paper](https://arxiv.org/abs/2403.09010) and has its actual implementation in [Pyrepseq package](https://github.com/andim/pyrepseq).
 
-## Installation
-```bash
-pip install xt-neighbor-cpu
-```
-
-## Quick Usage
-```python
-from xt_neighbor_cpu import nearest_neighbor
-
-seqs = ['CAA', 'CAD', 'CDA', 'CKK']
-distance_threshold = 1
-result = nearest_neighbor(seqs, distance_threshold)
-# return [ (0,1,1), (0,2,1) ] where each triplet (i,j,d) represents the sequence index i,j and their edit distance d.
-```
-
-## Documentation
-```python
-"""
+def nearest_neighbor(seqs, max_edits=1, max_returns=None,
+             custom_distance=None, max_custom_distance=float('inf'),
+             output_type='triplets', seqs2=None, progress=False):
+	"""
     List all neighboring sequences efficiently within the given distance using SymDel algorithm.
     That is, given a list of AIRR sequences and edit distance threshold, find all pairs of sequences that have their edit distance smaller or equal to the threshold.
 
@@ -56,4 +40,5 @@ result = nearest_neighbor(seqs, distance_threshold)
         if "coo_matrix" returns are scipy's sparse matrix where C[i,j] = distance(X_i, X_j) or 0 if not neighbor
         if "ndarray" returns numpy's 2d array representing dense matrix
     """
-```
+	return symdel(seqs, max_edits, max_returns, custom_distance, max_custom_distance,
+             output_type, seqs2, progress)

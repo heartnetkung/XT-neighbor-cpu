@@ -1,1 +1,1 @@
-from .main import *
+from .xt_neighbor import *

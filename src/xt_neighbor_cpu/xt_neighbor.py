@@ -1,9 +1,9 @@
 from pyrepseq import symdel
 
 
-def nearest_neighbor(seqs, max_edits=1, max_returns=None,
-             custom_distance=None, max_custom_distance=float('inf'),
-             output_type='triplets', seqs2=None, progress=False):
+def nearest_neighbor(seqs, max_edits=1, custom_distance=None,
+                     max_custom_distance=float('inf'), output_type='triplets',
+                     seqs2=None, progress=False):
     """
     List all neighboring sequences efficiently within the given distance using SymDel algorithm.
     That is, given a list of AIRR sequences and edit distance threshold, find all pairs of sequences that have their edit distance smaller or equal to the threshold.
@@ -19,8 +19,6 @@ def nearest_neighbor(seqs, max_edits=1, max_returns=None,
         list of CDR3B sequences
     max_edits : int
         maximum edit distance defining the neighbors
-    max_returns : int or None
-        maximum neighbor size
     custom_distance : Function(str1, str2) or "hamming"
         custom distance function to use, must statisfy 4 properties of distance (https://en.wikipedia.org/wiki/Distance#Mathematical_formalization)
     max_custom_distance : float
@@ -35,7 +33,7 @@ def nearest_neighbor(seqs, max_edits=1, max_returns=None,
     neighbors : array of 3D-tuples
         neigbors along with their edit distances in format [(x_index, y_index, edit_distance)]
     """
-    result = symdel(seqs, max_edits=max_edits, max_returns=max_returns,
-        custom_distance=custom_distance, max_custom_distance=max_custom_distance,
-        seqs2=seqs2, progress=progress)
-    return list(filter(lambda x:x[0]<x[1],result))
+    result = symdel(
+        seqs, max_edits=max_edits, custom_distance=custom_distance,
+        max_custom_distance=max_custom_distance, seqs2=seqs2, progress=progress)
+    return list(filter(lambda x: x[0] < x[1], result))

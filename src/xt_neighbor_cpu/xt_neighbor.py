@@ -36,4 +36,6 @@ def nearest_neighbor(seqs, max_edits=1, custom_distance=None,
     result = symdel(
         seqs, max_edits=max_edits, custom_distance=custom_distance,
         max_custom_distance=max_custom_distance, seqs2=seqs2, progress=progress)
+    if seqs2 is not None:
+        return result
     return list(filter(lambda x: x[0] < x[1], result))

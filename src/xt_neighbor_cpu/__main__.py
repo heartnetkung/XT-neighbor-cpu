@@ -64,8 +64,6 @@ def main():
     args = get_args()
     if args.verbose:
         print(args)
-    if args.version:
-        return print(VERSION)
 
     # run
     measure = 'hamming' if args.measurement == 'hamming' else None

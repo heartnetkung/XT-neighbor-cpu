@@ -58,22 +58,22 @@ result = nearest_neighbor(seqs, distance_threshold)
 ## Command Line Usage
 ```bash
 echo "Complimentaty Commands ===="
-xt_neighbor_cpu --help
-xt_neighbor_cpu --version
+python -m xt_neighbor_cpu --help
+python -m xt_neighbor_cpu --version
 
 echo "Basic Usage ===="
-xt_neighbor_cpu -i dummy_input.txt -o output1.txt
-xt_neighbor_cpu -i dummy_input.txt -d 2
+python -m xt_neighbor_cpu -i dummy_input.txt -o output1.txt
+python -m xt_neighbor_cpu -i dummy_input.txt -d 2
 
 echo "AIRR Mode ===="
-xt_neighbor_cpu -a -i dummy_input_airr.tsv
+python -m xt_neighbor_cpu -a -i dummy_input_airr.tsv
 
 echo "Comparison Mode ===="
-xt_neighbor_cpu -a -i dummy_input_airr.tsv -I dummy_input_airr.tsv -o output2.txt
+python -m xt_neighbor_cpu -a -i dummy_input_airr.tsv -I dummy_input_airr.tsv -o output2.txt
 
 echo "Hamming Distance Mode ===="
-xt_neighbor_cpu -a -i dummy_input_airr.tsv -m hamming
-xt_neighbor_cpu -a -i dummy_input_airr.tsv -m hamming -d 2
+python -m xt_neighbor_cpu -a -i dummy_input_airr.tsv -m hamming
+python -m xt_neighbor_cpu -a -i dummy_input_airr.tsv -m hamming -d 2
 
 ```
 See `test` folder for more information

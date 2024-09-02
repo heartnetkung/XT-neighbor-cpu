@@ -4,12 +4,16 @@ from .xt_neighbor import nearest_neighbor
 import sys
 from os import path
 import re
+import pkg_resources
 
 
 def get_version():
-    filename = path.join(path.dirname(__file__), '../../pyproject.toml')
-    with open(filename) as file:
-        return re.search(r'version\s*=\s*"([^"]+)"',file.read()).group(1)
+    try:
+        return pkg_resources.get_distribution("xt_neighbor_cpu").version
+    except:
+        filename = path.join(path.dirname(__file__), '../../pyproject.toml')
+        with open(filename) as file:
+            return re.search(r'version\s*=\s*"([^"]+)"', file.read()).group(1)
     return 'null'
 
 

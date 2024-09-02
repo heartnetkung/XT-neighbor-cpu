@@ -4,12 +4,12 @@ from .xt_neighbor import nearest_neighbor
 import sys
 from os import path
 import re
-import pkg_resources
+from importlib.metadata import version
 
 
 def get_version():
     try:
-        return pkg_resources.get_distribution("xt_neighbor_cpu").version
+        return version("xt_neighbor_cpu")
     except:
         filename = path.join(path.dirname(__file__), '../../pyproject.toml')
         with open(filename) as file:
